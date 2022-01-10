@@ -6,6 +6,7 @@ import model.Place;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class Repository {
 
@@ -43,6 +44,17 @@ public class Repository {
         for (Offer offer : offerList) {
             String line = offer.getId() + "&" + offer.getCompanyName() + "&" +
                     offer.getPrice() + "&" + offer.getVAT() + "&" + offer.getAddress() + "&" + offer.getPlace();
+            bufferedWriter.write(line);
+            bufferedWriter.newLine();
+        }
+
+        bufferedWriter.close();
+    }
+
+    public void writeStatistics(Map<Place, Integer> incomes, String fileName) throws IOException {
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(fileName));
+        for (Map.Entry<Place, Integer> entry : incomes.entrySet()) {
+            String line = entry.getKey() + ": " + entry.getValue();
             bufferedWriter.write(line);
             bufferedWriter.newLine();
         }

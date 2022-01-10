@@ -40,4 +40,16 @@ public class Offer {
     public Place getPlace() {
         return place;
     }
+
+    @Override
+    public String toString() {
+        return "Offer{" +
+                "id=" + id +
+                ", companyName='" + companyName + '\'' +
+                ", price=" + price +
+                ", VAT=" + VAT +
+                ", address='" + address + '\'' +
+                ", place=" + place +
+                '}';
+    }
 }
